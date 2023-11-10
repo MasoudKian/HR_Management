@@ -9,10 +9,4 @@
     <ProjectReference Include="..\HR_Management.Domain\HR_Management.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Persistence\Contract\LeaveAllocation\" />
-    <Folder Include="Persistence\Contract\LeaveRequest\" />
-    <Folder Include="Persistence\Contract\LeaveType\" />
-  </ItemGroup>
-
 </Project>
