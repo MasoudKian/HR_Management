@@ -1,11 +1,10 @@
 ﻿using HR_Management.Application.DTOs.Common;
 
-namespace HR_Management.Application.DTOs
+namespace HR_Management.Application.DTOs.LeaveAllocation
 {
-    public class LeaveAllocationDTO : BaseDTO
+    public class CreateLeaveAllocationDTO : BaseDTO
     {
         public int NumberOfDays { get; set; }
-        public LeaveTypeDTO LeaveType { get; set; }
         public int LeaveTypeId { get; set; }
         public int Priod { get; set; }
     }
