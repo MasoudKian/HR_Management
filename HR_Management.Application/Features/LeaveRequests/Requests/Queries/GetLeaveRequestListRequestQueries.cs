@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace HR_Management.Application.Features.LeaveRequests.Requests.Queries
 {
-    public class GetLeaveRequestListRequestQueries : IRequest<List<LeaveRequestDTO>>
+    public class GetLeaveRequestListRequestQueries : IRequest<List<LeaveRequestListDTO>>
     {
     }
 }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace HR_Management.Application.Features.LeaveRequests.Handlers.Queries
 {
     public class GetLeaveRequestListHandlerQueries :
-        IRequestHandler<GetLeaveRequestListRequestQueries, List<LeaveRequestDTO>>
+        IRequestHandler<GetLeaveRequestListRequestQueries, List<LeaveRequestListDTO>>
     {
 
         #region Contstructor
@@ -28,11 +28,11 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Queries
 
         #endregion
 
-        public async Task<List<LeaveRequestDTO>> Handle(GetLeaveRequestListRequestQueries request
+        public async Task<List<LeaveRequestListDTO>> Handle(GetLeaveRequestListRequestQueries request
             , CancellationToken cancellationToken)
         {
-            var leaveReauestList = await _leaveRequestRepository.GetAll();
-            return _mapper.Map<List<LeaveRequestDTO>>(leaveReauestList);
+            var leaveReauestList = await _leaveRequestRepository.GetLeaveRequestsWithDetails();
+            return _mapper.Map<List<LeaveRequestListDTO>>(leaveReauestList);
         }
     }
 }
