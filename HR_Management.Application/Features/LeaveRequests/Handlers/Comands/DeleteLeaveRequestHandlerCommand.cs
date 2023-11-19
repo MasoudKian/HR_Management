@@ -1,21 +1,18 @@
 ﻿using AutoMapper;
 using HR_Management.Application.Features.LeaveRequests.Requests.Comands;
 using HR_Management.Application.Persistence.Contract;
-using HR_Management.Domain;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
 {
-    public class CreateLeaveRequestHandlerCammands
-        : IRequestHandler<CreateLeaveRequestRequestsCammands, int>
+    public class DeleteLeaveRequestHandlerCommand : IRequestHandler<DeleteLeaveRequestRequestsCommand, Unit>
     {
-
         #region Constructor
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
-        public CreateLeaveRequestHandlerCammands(ILeaveRequestRepository leaveRequestRepository
+        public DeleteLeaveRequestHandlerCommand(ILeaveRequestRepository leaveRequestRepository
             , IMapper mapper)
         {
             _leaveRequestRepository = leaveRequestRepository;
@@ -24,11 +21,12 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
 
         #endregion
 
-        public async Task<int> Handle(CreateLeaveRequestRequestsCammands request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteLeaveRequestRequestsCommand request, CancellationToken cancellationToken)
         {
-            var leaveRequest = _mapper.Map<LeaveRequest>(request.LeaveRequestDTO);
-            leaveRequest = await _leaveRequestRepository.Add(leaveRequest);
-            return leaveRequest.Id;
+            var leaveRequest = await _leaveRequestRepository.Get(request.Id);
+            await _leaveRequestRepository.Delete(leaveRequest);
+
+            return Unit.Value;
         }
     }
 }

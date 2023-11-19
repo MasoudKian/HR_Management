@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace HR_Management.Application.Features.LeaveAllocations.Handlers.Comands
 {
-    public class LeaveAllocationHandlerComands
+    public class CreateLeaveAllocationHandlerComands
         : IRequestHandler<CreateLeaveAllocationRequestComands, int>
     {
-        private readonly ILeaveAllocationRepostiory _leaveAllocationRepostiory;
-        private readonly IMapper _mapper;
+
         #region Constructor
 
-        public LeaveAllocationHandlerComands(ILeaveAllocationRepostiory leaveAllocationRepostiory
+        private readonly ILeaveAllocationRepostiory _leaveAllocationRepostiory;
+        private readonly IMapper _mapper;
+        public CreateLeaveAllocationHandlerComands(ILeaveAllocationRepostiory leaveAllocationRepostiory
             , IMapper mapper)
         {
             _leaveAllocationRepostiory = leaveAllocationRepostiory;
