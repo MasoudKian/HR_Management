@@ -14,11 +14,4 @@
     <ProjectReference Include="..\HR_Management.Domain\HR_Management.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\LeaveAllocations\Handlers\Comands\" />
-    <Folder Include="Features\LeaveAllocations\Requests\Comands\" />
-    <Folder Include="Features\LeaveRequests\Handlers\Comands\" />
-    <Folder Include="Features\LeaveRequests\Requests\Comands\" />
-  </ItemGroup>
-
 </Project>
