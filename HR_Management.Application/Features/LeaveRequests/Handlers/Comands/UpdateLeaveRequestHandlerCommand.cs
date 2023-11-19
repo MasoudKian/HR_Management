@@ -17,7 +17,7 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
         private readonly IMapper _mapper;
 
         public UpdateLeaveRequestHandlerCommand(ILeaveRequestRepository leaveRequestRepository
-            ,IMapper mapper)
+            , IMapper mapper)
         {
             _leaveRequestRepository = leaveRequestRepository;
             _mapper = mapper;
@@ -26,9 +26,17 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
         #endregion
         public async Task<Unit> Handle(UpdateLeaveRequestsRequestCommand request, CancellationToken cancellationToken)
         {
-            var leaveRequest = await _leaveRequestRepository.Get(request.LeaveRequestDTO.Id);
-            _mapper.Map(request.LeaveRequestDTO, leaveRequest);
-            await _leaveRequestRepository.Update(leaveRequest);
+            var leaveRequest = await _leaveRequestRepository.Get(request.Id);
+            if (request.LeaveRequestDTO != null)
+            {
+                _mapper.Map(request.LeaveRequestDTO, leaveRequest);
+                await _leaveRequestRepository.Update(leaveRequest);
+            }
+            else if (request.ChangeLeaveRequestApprovalDTO != null)
+            {
+                await _leaveRequestRepository
+                    .ChangeApprovalStatus(leaveRequest,request.ChangeLeaveRequestApprovalDTO.Approved);
+            }
 
             return Unit.Value;
 
