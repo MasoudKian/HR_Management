@@ -24,9 +24,14 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
         }
 
         #endregion
-        public Task<Unit> Handle(UpdateLeaveRequestsRequestCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateLeaveRequestsRequestCommand request, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var leaveRequest = await _leaveRequestRepository.Get(request.LeaveRequestDTO.Id);
+            _mapper.Map(request.LeaveRequestDTO, leaveRequest);
+            await _leaveRequestRepository.Update(leaveRequest);
+
+            return Unit.Value;
+
         }
     }
 }

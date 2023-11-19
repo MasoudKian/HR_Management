@@ -25,9 +25,13 @@ namespace HR_Management.Application.Features.LeaveAllocations.Handlers.Comands
         }
 
         #endregion
-        public Task<Unit> Handle(UpdateLeaveAllocationRequestCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateLeaveAllocationRequestCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var leaveAllocation = await _leaveAllocationRepostiory.Get(request.LeaveAllocationDTO.Id);
+            _mapper.Map(request.LeaveAllocationDTO, leaveAllocation);
+            await _leaveAllocationRepostiory.Update(leaveAllocation);
+
+            return Unit.Value;
         }
     }
 }
