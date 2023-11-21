@@ -7,7 +7,7 @@ namespace HR_Management.Application.Features.LeaveRequests.Requests.Comands
     {
         public int Id { get; set; }
 
-        public LeaveRequestDTO LeaveRequestDTO { get; set; }
+        public UpdateLeaveRequestDTO UpdateLeaveRequestDTO { get; set; }
 
         public ChangeLeaveRequestApprovalDTO ChangeLeaveRequestApprovalDTO { get; set; }
     }

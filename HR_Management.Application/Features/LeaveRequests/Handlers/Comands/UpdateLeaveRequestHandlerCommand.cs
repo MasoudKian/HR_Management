@@ -27,9 +27,9 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
         public async Task<Unit> Handle(UpdateLeaveRequestsRequestCommand request, CancellationToken cancellationToken)
         {
             var leaveRequest = await _leaveRequestRepository.Get(request.Id);
-            if (request.LeaveRequestDTO != null)
+            if (request.UpdateLeaveRequestDTO != null)
             {
-                _mapper.Map(request.LeaveRequestDTO, leaveRequest);
+                _mapper.Map(request.UpdateLeaveRequestDTO, leaveRequest);
                 await _leaveRequestRepository.Update(leaveRequest);
             }
             else if (request.ChangeLeaveRequestApprovalDTO != null)
