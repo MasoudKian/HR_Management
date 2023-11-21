@@ -8,13 +8,13 @@ namespace HR_Management.Application.DTOs.LeaveRequest.Validators
 {
     public class UpdateLeaveRequestDTOValidator : AbstractValidator<UpdateLeaveRequestDTO>
     {
-        private readonly ILeaveRequestRepository _leaveRequestRepository;
+        private readonly ILeaveTypeRepository _leaveTypeRepository;
 
-        public UpdateLeaveRequestDTOValidator(ILeaveRequestRepository leaveRequestRepository)
+        public UpdateLeaveRequestDTOValidator(ILeaveTypeRepository leaveTypeRepository)
         {
-            _leaveRequestRepository = leaveRequestRepository;
+            _leaveTypeRepository = leaveTypeRepository;
 
-            Include(new ILeaveRequestDTOValidator(_leaveRequestRepository));
+            Include(new ILeaveRequestDTOValidator(_leaveTypeRepository));
 
             RuleFor(p => p.Id)
                 .NotNull().WithMessage("{PropertyName} update is required");
