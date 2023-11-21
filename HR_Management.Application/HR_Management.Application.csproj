@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="DTOs\LeaveAllocation\Validators\" />
-    <Folder Include="DTOs\LeaveRequest\Validators\" />
   </ItemGroup>
 
 </Project>

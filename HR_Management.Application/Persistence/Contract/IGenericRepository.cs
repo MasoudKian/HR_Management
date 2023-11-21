@@ -9,6 +9,7 @@ namespace HR_Management.Application.Persistence.Contract
 
         //فقط اطلاعات رو میخونه واکشی میکنه
         Task<IReadOnlyList<T>> GetAll();
+        Task<bool> Exist(int id);
         Task<T> Add(T entity);
         Task<T> Update(T entity);
         Task<T> Delete(T entity);
