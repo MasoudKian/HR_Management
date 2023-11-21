@@ -5,6 +5,6 @@ namespace HR_Management.Application.Features.LeaveAllocations.Requests.Comands
 {
     public class UpdateLeaveAllocationRequestCommand :IRequest<Unit>
     {
-        public LeaveAllocationDTO LeaveAllocationDTO { get; set; }
+        public UpdateLeaveAllocationDTO UpdateLeaveAllocationDTO { get; set; }
     }
 }
