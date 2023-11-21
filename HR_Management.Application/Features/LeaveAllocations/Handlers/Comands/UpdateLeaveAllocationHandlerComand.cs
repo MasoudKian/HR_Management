@@ -42,6 +42,7 @@ namespace HR_Management.Application.Features.LeaveAllocations.Handlers.Comands
 
             #endregion
 
+
             var leaveAllocation = await _leaveAllocationRepostiory.Get(request.UpdateLeaveAllocationDTO.Id);
             _mapper.Map(request.UpdateLeaveAllocationDTO, leaveAllocation);
             await _leaveAllocationRepostiory.Update(leaveAllocation);
