@@ -31,7 +31,6 @@ namespace HR_Management.Application.Features.LeaveTypes.Handlers.Commands
             if (leaveType == null)
                 throw new NotFoundExeption(nameof(LeaveTypes), request.Id);
 
-
             return Unit.Value;
         }
     }
