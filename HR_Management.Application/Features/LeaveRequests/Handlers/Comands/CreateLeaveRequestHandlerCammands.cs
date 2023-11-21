@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HR_Management.Application.DTOs.LeaveRequest.Validators;
 using HR_Management.Application.DTOs.LeaveType.Validators;
+using HR_Management.Application.Exeptions;
 using HR_Management.Application.Features.LeaveRequests.Requests.Comands;
 using HR_Management.Application.Persistence.Contract;
 using HR_Management.Domain;
@@ -39,7 +40,7 @@ namespace HR_Management.Application.Features.LeaveRequests.Handlers.Comands
             var validationResult = await validator.ValidateAsync(request.CreateLeaveRequestDTO);
 
             if (validationResult.IsValid == false)
-                throw new Exception();
+                throw new ValidationExeption(validationResult);
 
             #endregion
 
