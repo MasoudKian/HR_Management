@@ -7,6 +7,7 @@ namespace HR_Management.Application.DTOs.LeaveType.Validators
         public CreateLeaveTypeValidator()
         {
             Include(new ILeaveTypeDTOValidator());
+
         }
     }
 }

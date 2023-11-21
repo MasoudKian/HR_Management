@@ -30,7 +30,7 @@ namespace HR_Management.Application.Features.LeaveTypes.Handlers.Commands
             , CancellationToken cancellationToken)
         {
             #region CreateValidator
-            var validator = new ILeaveTypeDTOValidator();
+            var validator = new CreateLeaveTypeValidator();
             //var validator = new CreateLeaveTypeDTOValidator();
             var validationResult = await validator.ValidateAsync(request.CreateLeaveTypeDTO);
 
