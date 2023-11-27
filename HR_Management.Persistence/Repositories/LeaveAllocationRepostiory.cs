@@ -1,4 +1,4 @@
-﻿using HR_Management.Application.Persistence.Contract;
+﻿using HR_Management.Application.Contract.Persistence;
 using HR_Management.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
