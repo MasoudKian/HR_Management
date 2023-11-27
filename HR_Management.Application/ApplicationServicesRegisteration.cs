@@ -1,5 +1,4 @@
-﻿using HR_Management.Application.Profiles;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace HR_Management.Application
